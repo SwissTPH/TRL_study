@@ -19,7 +19,6 @@ quantile(temp1$ageMeasles, probs=c(0.0,0.25,0.5,0.75,1.0), na.rm=TRUE)
 
  
 
-
 # -- TABLE 10 ---------
 
 # proportion with vaccination on time of those old enough
@@ -154,11 +153,11 @@ exp(summary(m1)$coefficients["interv3",1] +
 # if child aged 14+2 weeks
 temp1<-allsmall[allsmall$ageChildCalcDays>=(16*7),]
 # control arm
-temp2<-temp1[allsmall$researchArm==0,]
+temp2<-temp1[temp1$researchArm==0,]
 table(temp2$numPenta, temp2$survey)
 prop.table(table(temp2$numPenta, temp2$survey),margin=2)
 # intervention arm
-temp2<-temp1[allsmall$researchArm==1,]
+temp2<-temp1[temp1$researchArm==1,]
 table(temp2$numPenta, temp2$survey)
 prop.table(table(temp2$numPenta, temp2$survey),margin=2)
 

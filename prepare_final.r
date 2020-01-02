@@ -335,6 +335,7 @@ final$whereSoughtTrt[grep("mild",final$specify_trt_place)] <-"not ill"
 final$whereSoughtTrt[grep("not ill",final$specify_trt_place)] <-"not ill"
 final$whereSoughtTrt[grep("N/A",final$specify_trt_place)] <-"not ill"
 final$whereSoughtTrt[grep("No illness",final$specify_trt_place)] <-"not ill"
+final$whereSoughtTrt[final$whereSoughtTrt=="not ill"]<-""
 
 final$whereSoughtTrt[final$Q71_specify_other_treatment_place=="Always sick"]<-"OtherT"
 final$whereSoughtTrt[final$Q71_specify_other_treatment_place=="Church"]<-"OtherT"
@@ -354,8 +355,8 @@ final$whereSoughtTrt[final$Q71_specify_other_treatment_place=="Resident health w
 final$whereSoughtTrt[final$Q71_specify_other_treatment_place=="Took  native  treatment"]<-"OtherT"
 final$whereSoughtTrt[substring(final$Q71_specify_other_treatment_place,1,7)=="Treated"]<-"OtherT"
 final$whereSoughtTrt[final$Q71_specify_other_treatment_place=="Voming"]<-"OtherT"
-final$whereSoughtTrt[final$whereSoughtTrt=="not ill"]<-""
 
+final$whereSoughtTrt[final$whereSoughtTrt=="other_specify"]<-"OtherT"
 
 
 # age of carer

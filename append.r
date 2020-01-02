@@ -7,17 +7,17 @@ basesmall<-cbind(as.character(base$Q2_lga), as.character(base$Q3_ward), base$vil
                  base$ageChildCalcDays, base$ageChildCalcMonths, base$calcUpToDate,
                  base$neverhadvacc, base$immCardSeen, base$numPenta, base$agePenta1,
                  base$agePenta2, base$agePenta3,base$ageMeasles, base$tetanusVacc, base$HFdistance, base$hardToReach, 
-                 base$femaleChild)
+                 base$femaleChild, base$attendANC, base$everHadMeasles)
 midsmall<-cbind(as.character(mid$Q2_lga), as.character(mid$Q3_ward), mid$villageNo, 
                  mid$ageChildCalcDays, mid$ageChildCalcMonths,  mid$calcUpToDate, 
                  mid$neverhadvacc, mid$immCardSeen, mid$numPenta, mid$agePenta1, 
                  mid$agePenta2, mid$agePenta3, mid$ageMeasles, mid$tetanusVacc, mid$HFdistance, mid$hardToReach,
-                 mid$femaleChild)
+                 mid$femaleChild, mid$attendANC, mid$everHadMeasles)
 finalsmall<-cbind(as.character(final$Q1.LGA), as.character(final$Q2.Ward), final$villageNo, 
                  final$ageChildCalcDays, final$ageChildCalcMonths,final$calcUpToDate,
                  final$neverhadvacc, final$immCardSeen, final$numPenta, final$agePenta1,
                  final$agePenta2, final$agePenta3, final$ageMeasles, final$tetanusVacc, final$HFdistance, final$hardToReach,
-                 final$femaleChild)
+                 final$femaleChild, final$attendANC, final$everHadMeasles)
 
 
 basesmall<-as.data.frame(basesmall)
@@ -30,7 +30,7 @@ finalsmall$survey<-3
 allsmall<-rbind(basesmall, midsmall, finalsmall)
 colnames(allsmall)<-c("lga","ward","village","ageChildCalcDays","ageChildCalcMonths","calcUpToDate", "neverhadvacc","immCardSeen",
 		          "numPenta","agePenta1","agePenta2","agePenta3","ageMeasles","tetanusVacc","HFdistance","hardToReach",
-                      "femaleChild","survey")
+                      "femaleChild","attendANC","everHadMeasles","survey")
 
 allsmall$rlga<-as.numeric(allsmall$lga)
 allsmall$rward<-as.numeric(allsmall$ward)

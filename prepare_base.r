@@ -313,7 +313,12 @@ base$whereSoughtTrt[grep("no sick",base$specify_trt_place)] <-"not ill"
 base$whereSoughtTrt[grep("healthy",base$specify_trt_place)] <-"not ill"
 base$whereSoughtTrt[grep("never sick",base$specify_trt_place)] <-"not ill"
 base$whereSoughtTrt[grep("no sick",base$specify_trt_place)] <-"not ill"
-
+base$whereSoughtTrt[grep("Hasn't been sick",base$specify_trt_place)] <-"not ill"
+base$whereSoughtTrt[grep("No Treatment yet",base$specify_trt_place)] <-"not ill"
+base$whereSoughtTrt[grep("No treatment yet",base$specify_trt_place)] <-"not ill"
+base$whereSoughtTrt[grep("He has not fell sick",base$specify_trt_place)] <-"not ill"
+base$whereSoughtTrt[grep("Never gone",base$specify_trt_place)] <-"not ill"
+base$whereSoughtTrt[grep("Not\nSick",base$specify_trt_place)] <-"not ill"
 base$whereSoughtTrt[base$whereSoughtTrt=="not ill"]<-""
 
 base$whereSoughtTrt[base$Q72_specify_other_treatment_place=="Always sick"]<-"OtherT"

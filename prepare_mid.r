@@ -322,7 +322,6 @@ mid$whereSoughtTrt[grep("no sick",mid$specify_trt_place)] <-"not ill"
 mid$whereSoughtTrt[grep("healthy",mid$specify_trt_place)] <-"not ill"
 mid$whereSoughtTrt[grep("never sick",mid$specify_trt_place)] <-"not ill"
 mid$whereSoughtTrt[grep("no sick",mid$specify_trt_place)] <-"not ill"
-
 mid$whereSoughtTrt[mid$whereSoughtTrt=="not ill"]<-""
 
 mid$whereSoughtTrt[mid$Q71_specify_other_treatment_place=="Always sick"]<-"OtherT"
@@ -344,7 +343,7 @@ mid$whereSoughtTrt[mid$Q71_specify_other_treatment_place=="Took  native  treatme
 mid$whereSoughtTrt[substring(mid$Q71_specify_other_treatment_place,1,7)=="Treated"]<-"OtherT"
 mid$whereSoughtTrt[mid$Q71_specify_other_treatment_place=="Voming"]<-"OtherT"
 
-
+mid$whereSoughtTrt[mid$whereSoughtTrt=="other_specify"]<-"OtherT"
 
 # age of carer
 mid$agecarercat<-13

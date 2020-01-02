@@ -10,7 +10,7 @@ require(lme4)
 library(date)
 
 # set working directory to where code and data is
-setwd("C:/amanda/SCIH support/xavier/nigeria vacc cov/final survey & report/data & code for public")
+setwd("C:/amanda/SCIH support/xavier/nigeria vacc cov/final survey & report/data & code for public - revised")
 
 # prepare baseline, mid and final survey data
 # during the project, analysis was done after every survey to report to 3ie
@@ -41,7 +41,7 @@ source("append.r")
 
 # table 6: vaccination status of children
 # table 7: estimated impact of the intervention 
-# source"tables6&7.r")
+# source("table6&7.r")
 
 # table 8: vaccination status by subgroup
 # source("table8.r")
@@ -50,7 +50,7 @@ source("append.r")
 # table 10: proportion of children who received vaccination on time
 # table 11: number of Penta doses
 # table 12: Drop-out: number of children who received Penta 1 on time but not Penta 3
-# source("tables9to12.r")
+# source("table9to12.r")
 
 # table 13: other outcomes. health care utilization by mother and child illness
 # table 14: ICC values

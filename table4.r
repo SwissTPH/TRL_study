@@ -21,7 +21,7 @@ anova(m1,m2)
 table(mid$agecat, mid$researchArm, exclude=NULL)
 prop.table(table(mid$agecat, mid$researchArm, exclude=NULL), margin=2)
 
-# final
+# final survey
 table(final$agecat, final$researchArm, exclude=NULL)
 prop.table(table(final$agecat, final$researchArm, exclude=NULL), margin=2)
 
@@ -61,12 +61,10 @@ summary(m1)
 m2 <- update(m1,~.-as.factor(Q19_Birth_order_of_the_child))
 anova(m1,m2)
 
-
 # mid-term
 table(mid$Q19_Birth_order_of_the_child, mid$researchArm, exclude=NULL)
 prop.table(table(mid$Q19_Birth_order_of_the_child, mid$researchArm, exclude=NULL), margin=2)
  
-
 # final
 table(final$Q19_Birth_order_of_the_child, final$researchArm, exclude=NULL)
 prop.table(table(final$Q19_Birth_order_of_the_child, final$researchArm, exclude=NULL), margin=2)

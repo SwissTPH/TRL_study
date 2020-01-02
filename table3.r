@@ -16,7 +16,6 @@ table(mid$agecarercat, mid$researchArm, exclude=NULL)
 prop.table(table(mid$agecarercat, mid$researchArm, exclude=NULL),margin=2)
 
 # From final survey
-table(final$agecarercat)
 table(final$agecarercat, final$researchArm, exclude=NULL)
 prop.table(table(final$agecarercat, final$researchArm, exclude=NULL),margin=2)
 
@@ -72,7 +71,6 @@ table(base$Q10_Religious_Affiliation, base$Q10b_other_religious_affiliation, exc
 table(base$Q10_Religious_Affiliation, base$researchArm)
 prop.table(table(base$Q10_Religious_Affiliation, base$researchArm), margin=2)
 
-
 # mid survey
 table(mid$Q10_Religious_Affiliation, mid$researchArm)
 prop.table(table(mid$Q10_Religious_Affiliation, mid$researchArm), margin=2)
@@ -94,7 +92,6 @@ anova(m1,m2)
 
 
 
-
 # -- WHERE HELP WAS SOUGHT LAST FOR CHILD'S ILL HEALTH ---
 
 # From baseline survey
@@ -110,6 +107,15 @@ prop.table(table(mid$whereSoughtTrt[mid$whereSoughtTrt!=""], mid$researchArm[mid
 table(final$whereSoughtTrt, final$researchArm, exclude=NULL)
 prop.table(table(final$whereSoughtTrt[final$whereSoughtTrt!=""], final$researchArm[final$whereSoughtTrt!=""]), margin=2)
 
+# test of intervention vs control arm at baseline
+m1 <- glmer(interv ~ as.factor(whereSoughtTrt) + (1 | lgaNum) + (1 | wardNum) + (1 | villageNum),
+  data = base, family = binomial, control = glmerControl(optimizer = "bobyqa"))
+summary(m1)
+m1 <- glmer(interv ~ as.factor(whereSoughtTrt) + (1 | lgaNum),
+  data = base, family = binomial, control = glmerControl(optimizer = "bobyqa"))
+summary(m1)
+m2 <- update(m1,~.-as.factor(Q10_Religious_Affiliation))
+anova(m1,m2)
 
 
 

@@ -69,11 +69,12 @@ allsmall$HF30p[allsmall$HFdistance=="LessThan_45_mins_to_1hr_walk"]<-1
 allsmall$HF30p[allsmall$HFdistance=="moreThan_an_hour_walk"]<-1
 allsmall$HF30p[allsmall$HFdistance==""]<-NA
 
-temp1<-allsmall[allsmall$researchArm==0 & allsmall$HF30p==1,]
+# run for each combination of HF20 (0,1) and control/interv arm
+temp1<-allsmall[allsmall$researchArm==1 & allsmall$HF30p==1,]
 table(temp1$status, temp1$survey,exclude=NULL)
 prop.table(table(temp1$status, temp1$survey),margin=2)
 
-# chek interactions
+# check interactions
 allsmall$HF30pS2<-allsmall$HF30p*allsmall$interv2
 allsmall$HF30pS3<-allsmall$HF30p*allsmall$interv3
 m1 <- glmer(calcUpToDate ~ interv2 + interv3  + HF30p + HF30pS2 + HF30pS3 + as.factor(survey) + (1 | rlga) + (1 | rward) + (1 | rvillage) ,
@@ -84,7 +85,7 @@ summary(m1)
 # ---- BY HARD TO REACH CLASSIFICATION -----
 
 # hard to reach
-allsmall2<-allsmall[allsmall$hardToReach==1]
+allsmall2<-allsmall[allsmall$hardToReach==1,]
 table(allsmall2$status, allsmall2$intervSurvey, exclude=NULL)
 prop.table(table(allsmall2$status, allsmall2$intervSurvey), margin=2)
 
