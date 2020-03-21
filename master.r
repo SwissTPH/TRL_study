@@ -28,33 +28,32 @@ source("append.r")
 
 
 # ANALYSES
-# remove hash to run desired source file
 
 # table 3: characteristics of the caregivers by survey and arm
-# source("table3.r")
+source("table3.r",print=TRUE)
 
 # table 4: characteristics of the children by survey and arm
-# source("table4.r")
+source("table4.r", print=TRUE)
 
 # table 5: immunization cards seen 
-# source("table5.r")
+source("table5.r",print=TRUE)
 
 # table 6: vaccination status of children
 # table 7: estimated impact of the intervention 
-# source("table6&7.r")
+source("table6&7.r",print=TRUE)
 
 # table 8: vaccination status by subgroup
-# source("table8.r")
+source("table8.r", print=TRUE)
 
 # table 9: age at vaccination
 # table 10: proportion of children who received vaccination on time
 # table 11: number of Penta doses
 # table 12: Drop-out: number of children who received Penta 1 on time but not Penta 3
-# source("table9to12.r")
+source("table9to12.r",print=TRUE)
 
 # table 13: other outcomes. health care utilization by mother and child illness
 # table 14: ICC values
-# source("table13&14.r")
+source("table13&14.r", print=TRUE)
 
 
 

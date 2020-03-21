@@ -69,10 +69,16 @@ allsmall$HF30p[allsmall$HFdistance=="LessThan_45_mins_to_1hr_walk"]<-1
 allsmall$HF30p[allsmall$HFdistance=="moreThan_an_hour_walk"]<-1
 allsmall$HF30p[allsmall$HFdistance==""]<-NA
 
-# run for each combination of HF20 (0,1) and control/interv arm
-temp1<-allsmall[allsmall$researchArm==1 & allsmall$HF30p==1,]
-table(temp1$status, temp1$survey,exclude=NULL)
-prop.table(table(temp1$status, temp1$survey),margin=2)
+# less than 30min 
+temp1<-allsmall[allsmall$HF30p==0,]
+table(temp1$status, temp1$intervSurvey,exclude=NULL)
+prop.table(table(temp1$status, temp1$intervSurvey),margin=2)
+# 30min or more 
+temp1<-allsmall[allsmall$HF30p==1,]
+table(temp1$status, temp1$intervSurvey,exclude=NULL)
+prop.table(table(temp1$status, temp1$intervSurvey),margin=2)
+
+
 
 # check interactions
 allsmall$HF30pS2<-allsmall$HF30p*allsmall$interv2
@@ -80,6 +86,7 @@ allsmall$HF30pS3<-allsmall$HF30p*allsmall$interv3
 m1 <- glmer(calcUpToDate ~ interv2 + interv3  + HF30p + HF30pS2 + HF30pS3 + as.factor(survey) + (1 | rlga) + (1 | rward) + (1 | rvillage) ,
   data = allsmall, family = binomial, control = glmerControl(optimizer = "bobyqa"))
 summary(m1)
+
 
 
 # ---- BY HARD TO REACH CLASSIFICATION -----
